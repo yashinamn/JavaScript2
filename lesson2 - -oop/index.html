@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+   
+
+        function Person(name, yearOfBirth) {
+            this.name = name;
+            this.yearOfBirth = yearOfBirth;
+            this.lastName = "Smith";
+        }
+
+        Person.prototype.calcAge = function () {
+            console.log(new Date().getFullYear() - this.yearOfBirth)
+        }
+        
+        function Teacher(name, yearOfBirth, subject) {
+            this.subject = subject;
+            Person.call(this, name, yearOfBirth);
+        }
+     
+
+        var john = new Person('John', 1990);
+        var ann = new Teacher ('Ann', 2000, Math);
+
+    </script>
+</body>
+</html>
