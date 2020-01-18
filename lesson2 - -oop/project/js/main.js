@@ -1,23 +1,21 @@
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
 class Products {
     constructor(container='.products') {
         this.container = container;
         this.data = [];
         this.allProducts = [];
         this.allProductsSum = 0;
-        this.init()
-    }
-    init(){
-        this._fetchGoods();
-        this._render();
+        this._fetchGoods()
+            .then(() => this._render())
     }
     _fetchGoods(){
-        this.data = [
-            {id: 1, title: 'Notebook', price: 2000},
-            {id: 2, title: 'Keyboard', price: 70},
-            {id: 3, title: 'Mouse', price: 46},
-            {id: 4, title: 'Gamepad', price: 68},
-            {id: 5, title: 'Chair', price: 168},
-        ];
+        return fetch(`${API}/catalogData.json`)
+            .then(result => result.json())
+            .then(data => {
+                this.data = [...data];
+            })
+            .catch(error => console.log('error'));
     }
     calcSum() {
        // let result = 0;
@@ -41,17 +39,17 @@ class Products {
 class ProductItem {
     constructor(product, img="https://placehold.it/200x150") {
         this.price = product.price;
-        this.title = product.title;
-        this.id = product.id;
+        this.product_name = product.product_name;
+        this.id_product = product.id_product;
         this.img = img
     }
     render(){
         return `<div class="product-item">
-                 <img src="${this.img}" alt="${this.title}">
+                 <img src="${this.img}" alt="${this.product_name}">
                  <div class="desc">
-                     <h3>${this.title}</h3>
+                     <h3>${this.product_name}</h3>
                      <p>${this.price}</p>
-                     <button class="buy-btn">Купить</button>
+                     <button class="buy-btn" data-id="${this.id_product}" >Купить</button>
                  </div>
              </div>`
     }

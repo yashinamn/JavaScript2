@@ -34,12 +34,11 @@ button{
     align-self: center;
 }
 .products{
-    column-gap: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 20px;
     padding: 40px 80px;
-    justify-content: space-between;
+    
 }
 p {
     margin: 0 0 5px 0;
@@ -47,10 +46,10 @@ p {
 .product-item{
     display: flex;
     flex-direction: column;
-    width: 200px;
+    align-items: center;
+    padding: 30px;
     border-radius: 5px;
-    overflow: hidden;
-    margin: 20px 0;
+    padding: 10px;
 }
 img {
     max-width: 100%;
