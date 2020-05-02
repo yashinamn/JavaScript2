@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>components</title>
+</head>
+<body>
+    <div class="" id="app">
+        <button v-for="tab of tabs" :key="tab" @click="currentTab = tab">{{tab}}</button>
+
+        <component :is="compCurrentTab"> </component>
+        
+        <!--<button @click="any">some</button>
+        <el :title="title" :counter="counter" @increase="increase" 
+        @decrease="decrease" ref="some"><button @click="any">someBtn</button></el>
+        <el title="Hello" :counter="counter" @increase="counter++" @decrease="counter--"></el>
+        <el :title="text" :counter="counter" @increase="counter++" @decrease="counter--"></el>
+    
+        <error></error>-->
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="components.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

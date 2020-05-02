@@ -1,0 +1,48 @@
+button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.comp-one {
+ background-color: pink;
+ position: relative;
+}
+.comp-one:after {
+    content: '';
+    height: 17px;
+    width: 34px;
+    position: absolute;
+    top: -17px;
+    left: 0;
+    background-color: pink;
+    z-index: -1;
+}
+.comp-two {
+ background-color: red;
+ position: relative;
+
+}
+.comp-two:after {
+    content: '';
+    height: 17px;
+    width: 32px;
+    position: absolute;
+    top: -17px;
+    left: 35px;
+    background-color: red;
+    z-index: -1;
+}
+.comp-three {
+    background-color: green;
+    position: relative;
+
+}.comp-three:after {
+    content: '';
+    height: 17px;
+    width: 42px;
+    position: absolute;
+    top: -17px;
+    left: 67px;
+    background-color: green;
+    z-index: -1;
+}
